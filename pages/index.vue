@@ -1,64 +1,97 @@
 <template>
-  <section class="container">
-    <div>
-      <app-logo/>
-      <h1 class="title">
-        bh-market-poc
-      </h1>
-      <h2 class="subtitle">
-        Bh Market Front App POC
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
-      </div>
-    </div>
-  </section>
+    <main>
+        <css-cloud></css-cloud>
+        <img src="~/assets/img/logo.png" alt="Logo de BeaverHosting">
+        <nav>
+            <nuxt-link to="/features">Features</nuxt-link>
+            <nuxt-link to="/products">Products</nuxt-link>
+            <nuxt-link to="/trust">Trust</nuxt-link>
+            <nuxt-link to="/about">About</nuxt-link>
+        </nav>
+    </main>
 </template>
 
-<script>
-import AppLogo from '~/components/AppLogo.vue'
 
-export default {
-  components: {
-    AppLogo
-  }
-}
+<style lang="scss" scoped>
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background: $fourthColor;
+    }
+
+    img {
+        position: relative;
+        display: block;
+        margin-bottom: 20px;
+        max-width: 500px;
+        z-index: 1;
+    }
+
+    .CssCloudWarpper {
+        position: absolute;
+        top: 35vh;
+        left: 0;
+        right :0;
+        z-index: 0;
+        bottom: 0;
+        max-width: 100%;
+        max-height: 100%;
+        overflow: hidden;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 200px;
+
+        a {
+            display: block;
+            position: relative;
+            margin: 0 40px;
+            color : $secondColor;
+
+            font: {
+                size: 20px;
+            }
+
+            text : {
+                transform : uppercase;
+                decoration : none;
+            }
+
+            &::after {
+                content :'';
+                display: block;
+                width: 0;
+                height: 3px;
+                background: $firstColor;
+                transition: all 0.2s ease-out;
+            }
+
+            &:hover {
+                &::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+</style>
+
+<script>
+    import CssCloud from '~/components/CssCloud.vue';
+    export default {
+        name : "HomePage",
+        components : {
+            CssCloud
+        },
+        mouted() {
+            console.log("[Homepage] Mounted")
+        }
+    }
 </script>
 
-<style>
-.container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>

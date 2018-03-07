@@ -33,6 +33,27 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
-  }
+    },
+
+    vendor: ['vue-i18n']
+  },
+
+  css : [
+    '~/assets/sass/main.scss'
+  ],
+
+  loading: { color: 'cyan' },
+
+  modules : [
+    ['nuxt-sass-resources-loader', '~/assets/sass/variables.scss'],
+  ],
+
+  router: {
+    middleware: 'i18n'
+  },
+
+  plugins : [
+    '~/plugins/i18n.js',
+    '~/plugins/element'
+  ]
 }
