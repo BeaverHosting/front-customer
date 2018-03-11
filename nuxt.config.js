@@ -39,6 +39,8 @@ module.exports = {
   },
 
   css : [
+    'element-ui/lib/theme-chalk/reset.css',
+    'element-ui/lib/theme-chalk/index.css',
     '~/assets/sass/main.scss'
   ],
 
@@ -54,6 +56,7 @@ module.exports = {
 
   plugins : [
     '~/plugins/i18n.js',
-    '~/plugins/element'
+    '~/plugins/element',
+    '~/plugins/cssCloud'
   ]
 }

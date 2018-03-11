@@ -47,7 +47,9 @@
 
 
 <style lang="scss" scoped>
-
+.CssCloudWarpper {
+  pointer-events: none;
+}
 .frame {
   width: 500px;
   height: auto;

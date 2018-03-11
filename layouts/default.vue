@@ -1,7 +1,8 @@
 <template>
-  <div>
+  <main>
+    <css-cloud/>
     <nuxt/>
-  </div>
+  </main>
 </template>
 
 <style>
@@ -49,4 +50,17 @@ html {
   color: #fff;
   background-color: #35495e;
 }
+
+.CssCloudWarpper {
+  position: absolute;
+  top: 35vh;
+  left: 0;
+  right :0;
+  z-index: 0;
+  bottom: 0;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
 </style>
+
