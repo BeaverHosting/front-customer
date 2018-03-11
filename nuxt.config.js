@@ -48,6 +48,7 @@ module.exports = {
 
   modules : [
     ['nuxt-sass-resources-loader', '~/assets/sass/variables.scss'],
+    '@nuxtjs/axios'
   ],
 
   router: {
@@ -58,5 +59,9 @@ module.exports = {
     '~/plugins/i18n.js',
     '~/plugins/element',
     '~/plugins/cssCloud'
-  ]
+  ],
+
+  axios: {
+    // proxyHeaders: false
+  }
 }

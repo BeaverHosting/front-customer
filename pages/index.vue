@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="homepage">
         <img src="~/assets/img/logo.png" alt="Logo de BeaverHosting">
         <nav>
             <nuxt-link to="/features">Features</nuxt-link>
@@ -12,6 +12,14 @@
 
 
 <style lang="scss" scoped>
+
+    .homepage {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+    }
 
     img {
         position: relative;

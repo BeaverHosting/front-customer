@@ -1,5 +1,7 @@
 <template>
-    <div class="product">
+    <div class="product"
+        v-loading="loading"
+    >
         <el-steps :active="0" align-center>
             <el-step title="Etape 1" description="Inscription"></el-step>
             <el-step title="Etape 2" description="Résumé de la commande"></el-step>
@@ -11,8 +13,8 @@
                 <el-input v-model="form.name"></el-input>
             </el-form-item>
             <el-form-item>
-                <el-button type="primary" @click="onSubmit">Create</el-button>
-                <el-button><nuxt-link to="/products">Annuler</nuxt-link></el-button>
+                <el-button type="primary" @click="createContainer" :disabled="loading">Create</el-button>
+                <el-button><nuxt-link to="/products" :disabled="loading">Annuler</nuxt-link></el-button>
             </el-form-item>
         </el-form>
     </div>
@@ -49,6 +51,7 @@
         },
         data() {
             return {
+                loading : false,
                 form : {
                     name: '',
                     region: '',
@@ -76,8 +79,8 @@
             }
         },
         methods: {
-            onSubmit() {
-                console.log('submit!');
+            async createContainer() {
+                this.loading = true;
             }
         }
     }
