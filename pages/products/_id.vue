@@ -43,6 +43,7 @@
 </style>
 
 <script>
+    import axios from 'axios';
     export default {
         name : "ProductPage",
         validate ({ params }) {
@@ -53,34 +54,44 @@
             return {
                 loading : false,
                 form : {
-                    name: '',
-                    region: '',
-                    date1: '',
-                    date2: '',
-                    delivery: false,
-                    type: [],
-                    resource: '',
-                    desc: ''
+                    name: ''
                 }
             }
         },
         computed : {
             product() {
-                return this.$store.state.products.list.find(
+                return this.$store.state.products.list.find(product => {
                     product => product.id == this.$route.params.id
-                )
+                })
             }
         },
         watch : {
             product(newValue) {
                 if (!newValue) {
-
+                    this.$router.push('/products');
                 }
             }
         },
         methods: {
             async createContainer() {
                 this.loading = true;
+                this.$axios.$post('container/', {
+                    name : this.form.name
+                }).then(result => {
+                    this.$router.push('containers/'+this.form.name);
+                    this.$notify.success({
+                        title: 'Ok',
+                        message: 'Le conteneur a bien été créé'
+                    });
+                }).catch(error => {
+                    console.log(error);
+                    this.$notify.error({
+                        title: 'Erreur',
+                        message: 'Impossible d\'effectuer l\'action, ressayez plus tard'
+                    });
+                }).finally(() => {
+                    this.loading = false;
+                })
             }
         }
     }

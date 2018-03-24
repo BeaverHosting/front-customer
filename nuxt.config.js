@@ -1,3 +1,4 @@
+require('dotenv').config()
 module.exports = {
   /*
   ** Headers of the page
@@ -48,7 +49,8 @@ module.exports = {
 
   modules : [
     ['nuxt-sass-resources-loader', '~/assets/sass/variables.scss'],
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/dotenv'
   ],
 
   router: {
@@ -62,6 +64,6 @@ module.exports = {
   ],
 
   axios: {
-    // proxyHeaders: false
+    baseURL : process.env.CONTAINER_MANAGER_API_URL
   }
 }
