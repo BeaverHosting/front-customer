@@ -4,6 +4,9 @@
 
 ## Build Setup
 
+### Create an .env file
+Create an .env file at the project root, .env.exemple template file as reference.
+
 ``` bash
 # install dependencies
 $ npm install # Or yarn install
