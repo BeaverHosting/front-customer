@@ -92,9 +92,9 @@
             }
         },
         methods: {
-            async destroyContainer(containerID) {
+            async destroyContainer() {
                 this.loading = true;
-                this.$axios.$delete('container/'+containerID).then(result => {
+                this.$axios.$delete('container/'+this.form.name).then(result => {
                     this.$notify.success({
                         title: 'Ok',
                         message: 'Le conteneur a bien été supprimé'
