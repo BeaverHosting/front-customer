@@ -7,6 +7,10 @@
 ### Create an .env file
 Create an .env file at the project root, .env.exemple template file as reference.
 
+### Install & run the project
+#### Required env :
+ * Node.js > 8.9.1
+
 ``` bash
 # install dependencies
 $ npm install # Or yarn install
@@ -22,4 +26,7 @@ $ npm start
 $ npm run generate
 ```
 
-For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
+## Documentation
+ * [Nuxt.js docs](https://github.com/nuxt/nuxt.js)
+ * [Vue.js docs](https://vuejs.org/v2/guide/)
+
